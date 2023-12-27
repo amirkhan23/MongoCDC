@@ -63,6 +63,15 @@ mongoCDC.on('delete', (doc) => {
     console.log(JSON.stringify(doc, null, 2));
 });
 
+
+// Registering a Filter for a Specific Collection (databaseName.user)
+mongoCDC.filter('databaseName.user').on('op', (doc) => {
+    console.log("filter :: ",JSON.stringify(doc, null, 2));
+});
+
 ```
 
-Feel free to customize the **ns** par
+Feel free to customize the **ns** args
+
+###### How enable MongoCDC logs
+* set DEBUG='cdc:*'

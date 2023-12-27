@@ -49,7 +49,7 @@ class MongoCDC extends EventEmitter {
         }
         this.client = await MongoClient.connect(this.url, { monitorCommands: true });
         log('connected to mongodb');
-        this.client.on('error', (event) => log('error %j', event));
+        this.client.on('error', this.onError.bind(this));
         this.db = this.client.db();
         this.connected = true;
     }
@@ -140,13 +140,5 @@ class MongoCDC extends EventEmitter {
         return new OplogFilter({ ns, oplog: this });
     }
 }
-
-const mongoCDC = new MongoCDC("mongodb://127.0.0.1:27017/local", { ns: "test.*" });
-
-mongoCDC.listen().then(() => {
-    mongoCDC.filter('test.a').on('op', (doc) => {
-        console.log("filter :: ", JSON.stringify(doc, null, 2));
-    });
-})
 
 export default MongoCDC;
