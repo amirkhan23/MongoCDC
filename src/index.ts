@@ -126,6 +126,9 @@ class MongoCDC extends EventEmitter {
         if (/cursor (killed or )?timed out/.test(err.message)) {
             log('cursor timeout - re-tailing %j', err);
             this.listen();
+        } else if (/exceeded time limit/.test(err.message)) {
+            log('cursor exceeded timeout - re-tailing %j', err);
+            this.listen();
         } else {
             log('stream errored %j', err);
             this.emit('error', err);
