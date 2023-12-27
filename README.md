@@ -1,3 +1,6 @@
+# MongoCDC
+MongoCDC (Change Data Capture)
+
 ## Configure MongoDB with replica set
 
 To enable MongoDB with a replica set on your local instance, follow these steps:
@@ -62,4 +65,4 @@ mongoCDC.on('delete', (doc) => {
 
 ```
 
-Feel free to customize the **ns** parameter to filter specific database and collection names based on your requirements. The provided example demonstrates the basic usage of **MongoCDC** with event listeners for different MongoDB operations.
+Feel free to customize the **ns** par
