@@ -1,0 +1,22 @@
+{
+  "name": "mongocdc",
+  "version": "1.0.0",
+  "description": "mongodb cdc (change data capture) listerner",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "tsc && DEBUG='cdc:*' node dist/index.js"
+  },
+  "keywords": [],
+  "author": "amirkhan23",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/debug": "^4.1.12",
+    "@types/node": "^20.10.5",
+    "typescript": "^5.3.3"
+  },
+  "dependencies": {
+    "debug": "^4.3.4",
+    "mongodb": "^6.3.0"
+  }
+}
