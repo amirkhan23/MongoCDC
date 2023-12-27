@@ -73,5 +73,5 @@ mongoCDC.filter('databaseName.user').on('op', (doc) => {
 
 Feel free to customize the **ns** args
 
-###### How enable MongoCDC logs
+###### For enable MongoCDC logs
 * set DEBUG='cdc:*'
